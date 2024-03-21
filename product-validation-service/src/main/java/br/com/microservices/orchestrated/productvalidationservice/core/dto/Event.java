@@ -10,6 +10,8 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.springframework.util.CollectionUtils.isEmpty;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -26,7 +28,7 @@ public class Event {
     private LocalDateTime createdAt;
 
     public void addToHistory(History history){
-        if(eventHistory.isEmpty())
+        if(isEmpty(eventHistory))
             eventHistory = new ArrayList<>();
         eventHistory.add(history);
     }
